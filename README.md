@@ -8,17 +8,17 @@ The platform enables builders to upload and manage projects, while users can exp
 
 ### User Features
 
-Browse real estate projects
-View project details
-Interactive 3D model viewer
-Image gallery
-Project filtering and search
+- Browse real estate projects
+- View project details
+- Interactive 3D model viewer
+- Image gallery
+- Project filtering and search
 
 ### Builder Features
 
-Builder authentication
-Upload new projects
-Manage existing projects
-Edit project details
-Delete projects
-Builder dashboard for project management
+- Builder authentication
+- Upload new projects
+- Manage existing projects
+- Edit project details
+- Delete projects
+- Builder dashboard for project management
