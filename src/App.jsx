@@ -13,8 +13,9 @@ import Register from "./pages/Register";
 import Chat from "./pages/Chat";
 import BuilderDashboard from "./pages/BuilderDashboard";
 import EditProject from "./pages/EditProject";
-
 import ProjectDetails from "./pages/ProjectDetails";
+
+import Footer from "./components/Footer";
 
 // --- Error Boundary ---
 import React, { Component } from "react";
@@ -122,36 +123,39 @@ function App() {
 
   return (
     <ErrorBoundary>
-      <Navbar user={user} profile={profile} onLogout={handleLogout} />
+      <div className="flex flex-col min-h-screen">
+        <Navbar user={user} profile={profile} onLogout={handleLogout} />
 
-      <Routes>
-        <Route path="/edit-project/:id" element={<EditProject />} />
-        <Route path="/builder-dashboard" element={<BuilderDashboard />} />
-        <Route path="/project/:id" element={<ProjectDetails />} />
-        <Route path="/chat/:projectId/:builderId" element={<Chat />} />
-        <Route path="/" element={<Home />} />
-        <Route path="/explore" element={<Explore />} />
+        <Routes>
+          <Route path="/edit-project/:id" element={<EditProject />} />
+          <Route path="/builder-dashboard" element={<BuilderDashboard />} />
+          <Route path="/project/:id" element={<ProjectDetails />} />
+          <Route path="/chat/:projectId/:builderId" element={<Chat />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/explore" element={<Explore />} />
 
-        <Route
-          path="/builder"
-          element={
-            user && profile?.role === "builder" ? (
-              <BuilderPortal />
-            ) : (
-              <Navigate to="/login" replace />
-            )
-          }
-        />
+          <Route
+            path="/builder"
+            element={
+              user && profile?.role === "builder" ? (
+                <BuilderPortal />
+              ) : (
+                <Navigate to="/login" replace />
+              )
+            }
+          />
 
-        <Route
-          path="/login"
-          element={!user ? <Login /> : <Navigate to="/" replace />}
-        />
-        <Route
-          path="/register"
-          element={!user ? <Register /> : <Navigate to="/" replace />}
-        />
-      </Routes>
+          <Route
+            path="/login"
+            element={!user ? <Login /> : <Navigate to="/" replace />}
+          />
+          <Route
+            path="/register"
+            element={!user ? <Register /> : <Navigate to="/" replace />}
+          />
+        </Routes>
+        <Footer />
+      </div>
     </ErrorBoundary>
   );
 }
